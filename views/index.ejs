@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Search for a Movie</h1>
+    
+    <form action="/search" method="POST">
+        <input type="text" name="movieName" placeholder="Enter movie name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <% if (error) { %>
+        <p><%= error %></p>
+    <% } %>
+
+    <% if (movie) { %>
+        <h2>Movie Details</h2>
+        <p><strong>Title:</strong> <%= movie.Title %></p>
+        <p><strong>Year:</strong> <%= movie.Year %></p>
+        <p><strong>Genre:</strong> <%= movie.Genre %></p>
+        <p><strong>Plot:</strong> <%= movie.Plot %></p>
+        <p><strong>IMDB Rating:</strong> <%= movie.imdbRating %></p>
+        <img src="<%= movie.Poster %>" alt="Movie Poster">
+    <% } %>
+
+</body>
+</html>
